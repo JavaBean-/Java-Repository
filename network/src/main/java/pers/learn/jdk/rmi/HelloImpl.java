@@ -1,4 +1,4 @@
-package pers.learn.jdk;
+package pers.learn.jdk.rmi;
 
 import java.rmi.Naming;
 import java.rmi.RemoteException;
