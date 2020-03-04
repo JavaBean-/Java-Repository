@@ -5,13 +5,31 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
+
 import org.junit.Test;
-import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.Test;
 
 /**
- * 
- * 一串元素
+ * Detail Document for Stream
+ * <a>https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html#StreamOps</a>
+ * Stream operations are divided into intermediate and terminal operations
  *
+ * terminal operations
+ * forEach()
+ * forEachOrdered()
+ * toArray()
+ * reduce()
+ * collect()
+ * min()
+ * max()
+ * count()
+ * anyMatch()
+ * allMatch()
+ * noneMatch()
+ * findFirst()
+ * findAny()
+ *
+ * intermediate
  */
 public class StreamOverview {
 
@@ -39,19 +57,15 @@ public class StreamOverview {
 		list.add("A");
 		list.add("B");
 		list.add("F");
-		list.add("");
+		list.add("--");
 
 		list.parallelStream() // in parallel, not just concurrently!
 				.filter(s -> !s.isEmpty()) // remove empty strings
 				.distinct() // remove duplicates
+				.peek(a -> System.out.println("before:"+a))
 				.sorted() // sort them
+				.peek(b -> System.out.println("after:"+b))
 				.forEachOrdered(System.out::println);
-
-		list.stream() //
-				.filter(s -> !s.isEmpty()) // remove empty strings
-				.distinct() // remove duplicates
-				.sorted(Comparator.naturalOrder()) // sort them
-				.forEach(System.out::println);
 	}
 
 }
