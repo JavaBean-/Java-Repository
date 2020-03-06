@@ -1,12 +1,10 @@
 package xu.barry.stu.jcth.stream;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
-
-
-import org.junit.Test;
 
 /**
  * Detail Document for Stream
@@ -35,16 +33,13 @@ public class StreamOverview {
 	String[] names = new String[] { "barry", "lily", "ci", "clark" };
 
 	@Test
-	public void method() {
-
+	public void stream() {
 		List<String> nlist = Arrays.asList(names);
-
-		long c3 = nlist.stream().filter(n -> n.length() > 3).count();
-
+		long c3 = nlist.stream()
+				.filter(n -> n.length() > 3)
+				.count();
 		// 并行流，多个cpu并行操作，分段同时执行
 		long c5 = nlist.parallelStream().filter(n -> n.length() > 4).count();
-		System.out.println(c3);
-		System.out.println(c5);
 	}
 
 	@Test
