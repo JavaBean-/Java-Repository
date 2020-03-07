@@ -21,12 +21,16 @@ public class StreamCreate {
         Stream<String> hello = Stream.generate(() -> "hello");
         Stream<Double> d = Stream.generate(Math::random);
         Stream<BigInteger> b = Stream.iterate(BigInteger.ZERO, n -> n.add(BigInteger.ONE));
+
+        //primitive int stream
         IntStream intStream1 = IntStream.of(1, 2, 3, 4, 5);
         IntStream intStream2 = IntStream.range(1, 5);//1...4
         IntStream intStream3 = IntStream.rangeClosed(1, 5);//1...5
+
         //基本类型流转对象流
         Stream<Integer> si = intStream1.boxed();
         IntStream is = si.mapToInt(Integer::intValue);
+
         //???
         IntUnaryOperator sss = IntUnaryOperator.identity();
         IntStream intStream4 = IntStream.iterate(1, sss);
