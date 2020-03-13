@@ -9,6 +9,10 @@ import java.util.stream.Stream;
 
 import org.junit.Test;
 
+/**
+ * Functional interface:a functional interface has exactly one abstract method.
+ * Java 自带函数式接口 package: java.util.function
+ */
 public class LambdaSample {
 
 	public static String[] planets = new String[] { "Mercury", "Venus", "Earth", "Mars", "Saturn", "Jupiter", "Uranus",
