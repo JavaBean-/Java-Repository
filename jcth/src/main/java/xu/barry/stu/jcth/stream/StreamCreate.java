@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.function.IntUnaryOperator;
 import java.util.regex.Pattern;
 import java.util.stream.IntStream;
@@ -15,13 +18,36 @@ public class StreamCreate {
 
     @Test
     public void create() {
-        Stream<Integer> i = Stream.of(new Integer[]{1, 2, 3, 4, 5});
-        Stream<String> s = Stream.of("a", "b", "c");
-        Stream<String> empty = Stream.empty();
-        Stream<String> hello = Stream.generate(() -> "hello");
-        Stream<Double> d = Stream.generate(Math::random);
-        Stream<BigInteger> b = Stream.iterate(BigInteger.ZERO, n -> n.add(BigInteger.ONE));
+        createStream();
 
+        collectionTransferStream();
+
+        primitiveStream();
+
+        parallelStream();
+
+        otherFunction();
+    }
+
+    private void otherFunction() {
+        IntUnaryOperator sss = IntUnaryOperator.identity();
+        IntStream intStream4 = IntStream.iterate(1, sss);
+    }
+
+    private void parallelStream() {
+        //并行流
+        IntStream million = IntStream.range(1, 10000000);
+        long evenNum = million.parallel().filter(n -> n % 2 == 0).count();
+        System.out.println(evenNum);
+    }
+
+    private void collectionTransferStream() {
+        //List transfer stream
+        ArrayList<Integer> list = new ArrayList<>(Arrays.asList(1,2,3,4,5,6,7));
+        list.stream().skip(1).limit(5).forEach(System.out::print);
+    }
+
+    private void primitiveStream() {
         //primitive int stream
         IntStream intStream1 = IntStream.of(1, 2, 3, 4, 5);
         IntStream intStream2 = IntStream.range(1, 5);//1...4
@@ -30,20 +56,21 @@ public class StreamCreate {
         //基本类型流转对象流
         Stream<Integer> si = intStream1.boxed();
         IntStream is = si.mapToInt(Integer::intValue);
+    }
 
-        //???
-        IntUnaryOperator sss = IntUnaryOperator.identity();
-        IntStream intStream4 = IntStream.iterate(1, sss);
-        //并行流
-        IntStream million = IntStream.range(1, 10000000);
-        long evenNum = million.parallel().filter(n -> n % 2 == 0).count();
-        System.out.println(evenNum);
-
-
+    private void createStream() {
+        Stream<Integer> i = Stream.of(new Integer[]{1, 2, 3, 4, 5});
+        Stream<String> s = Stream.of("a", "b", "c");
+        Stream<String> empty = Stream.empty();
+        Stream<String> hello = Stream.generate(() -> "hello");
+        Stream<Double> d = Stream.generate(Math::random);
+        Stream<BigInteger> b = Stream.iterate(BigInteger.ZERO, n -> n.add(BigInteger.ONE));
     }
 
     /**
      *  Read file
+     *  Regular expression
+     *
      * @throws IOException
      */
     @Test
