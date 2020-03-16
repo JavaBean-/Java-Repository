@@ -41,10 +41,33 @@ public class GenericBrief {
         System.out.println(strList);
         System.out.println("Find str "+Collections.binarySearch(strList,"2"));
     }
-
 }
 
+/**
+ * 泛型类调用
+ * @param <T>
+ */
 class Interval<T>{
+
+    @Test
+    public void generic(){
+        Interval<Integer> ii = new Interval<>(1,2);
+
+        Interval<String> si = new Interval<>("1","2");
+
+        System.out.println(getReverse(ii).getLower());
+    }
+
+    /**
+     * 泛型方法(可以再普通类中，也可以在泛型类中)
+     *
+     * @param interval
+     * @param <T> 引入类型<T> 会被实际调用传入类型替换
+     * @return
+     */
+    public static <T> Interval<T> getReverse(Interval<T> interval){
+        return  new Interval<>(interval.getUpper(),interval.getLower());
+    }
 
     private T lower;
     private T upper;
@@ -56,5 +79,22 @@ class Interval<T>{
 
     public T getLower() {
         return lower;
+    }
+
+    public T getUpper() {
+        return upper;
+    }
+
+    public void setLower(T lower) {
+        this.lower = lower;
+    }
+
+    public void setUpper(T upper) {
+        this.upper = upper;
+    }
+
+    @Override
+    public String toString() {
+        return "Lower:"+lower+" Upper:"+upper;
     }
 }
