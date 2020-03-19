@@ -1,4 +1,4 @@
-package xu.barry.stu.jcth.Generic;
+package xu.barry.stu.jcth.generic;
 
 import org.junit.Test;
 
@@ -81,6 +81,26 @@ public class GenericLimitExtend{
         //get只能获取Object类型对象
         Object a = p.getFirst();
         System.out.println(a);
+    }
+
+    public void testMethod(){
+        ArrayList<GreenApple> greenApples = new ArrayList<GreenApple>();
+        ArrayList<Apple> apples = new ArrayList<Apple>();
+        ArrayList<Fruit> fruits = new ArrayList<Fruit>();
+        /**
+         * 因为入参限定 List<? super Apple>
+         * 要求入参必须是 List<? super Apple> 或父类
+         * insertElements(greenApples);//compile error
+         */
+        insertElements(apples);
+        insertElements(fruits);
+    }
+
+    public void insertElements(List<? super Apple> list){
+        list.add(new GreenApple());
+        list.add(new Apple());
+        Object a = list.get(0);
+        //list.add(new Fruit());
     }
 }
 

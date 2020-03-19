@@ -1,4 +1,4 @@
-package xu.barry.stu.jcth.Generic;
+package xu.barry.stu.jcth.generic;
 
 /**
  * JDK1.5引入泛型

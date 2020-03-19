@@ -1,6 +1,4 @@
-package xu.barry.stu.jcth.Generic;
-
-import org.junit.Test;
+package xu.barry.stu.jcth.generic;
 
 /**
  * 实现接口时，指定T类型

@@ -1,8 +1,7 @@
-package xu.barry.stu.jcth.Generic;
+package xu.barry.stu.jcth.generic;
 
 import org.junit.Test;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
