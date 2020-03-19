@@ -8,8 +8,9 @@ import org.junit.Test;
  * 参数，返回值类型
  * @param <T>
  */
+@FunctionalInterface
 public interface GenericInterface<T> {
-    public T add(T operand1,T operand2);
+    T add(T operand1,T operand2);
 }
 
 /**
@@ -21,8 +22,7 @@ class IntegerCalculator implements GenericInterface<Integer>{
         return operand1 + operand2;
     }
 
-    @Test
-    public void test(){
+    public static void main(String[] argv){
         GenericInterface<Integer> c2 = new IntegerCalculator();
         System.out.println(c2.add(1,2));
     }
@@ -42,14 +42,11 @@ class IntervalCalculator implements GenericInterface<Interval<Integer>>{
         return new Interval<>(lower,upper);
     }
 
-    @Test
+
     public static void main(String[] argv){
         GenericInterface<Interval<Integer>> ic = new IntervalCalculator();
-
         Interval<Integer> a = new Interval<>(1, 10);
-
         Interval<Integer> b = new Interval<>(2, 20);
-
        System.out.println(new IntervalCalculator().add(a,b));
     }
 }

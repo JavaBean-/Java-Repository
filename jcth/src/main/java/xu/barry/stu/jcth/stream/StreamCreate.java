@@ -8,7 +8,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.function.IntUnaryOperator;
 import java.util.regex.Pattern;
 import java.util.stream.IntStream;
@@ -43,7 +42,7 @@ public class StreamCreate {
 
     private void collectionTransferStream() {
         //List transfer stream
-        ArrayList<Integer> list = new ArrayList<>(Arrays.asList(1,2,3,4,5,6,7));
+        ArrayList<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7));
         list.stream().skip(1).limit(5).forEach(System.out::print);
     }
 
@@ -68,18 +67,22 @@ public class StreamCreate {
     }
 
     /**
-     *  Read file
-     *  Regular expression
+     * Read file
+     * Regular expression
      *
      * @throws IOException
      */
     @Test
     public void other() throws IOException {
 
-        Stream<String> contents = Files.lines(Paths.get("C:\\Users\\ezxuxzh\\Documents\\New Text Document.txt"));
-        contents.forEach(System.out::println);
+        String url = Files.lines(Paths.get("C:\\Users\\ezxuxzh\\Documents\\New Text Document.txt"))
+                .filter(s -> s.contains("server: "))
+                .map(t -> t.replace("server: ","").trim())
+                .findAny()
+                .orElse(null);
+        System.out.println(url);
 
-        Stream<String> works = Pattern.compile(",").splitAsStream("www,fds.gsg,gs,g,sg,sdgsg");
+        Stream<String> works = Pattern.compile(",").splitAsStream("www,fds.gsg,gs,g,sg/,sdgs//g");
         works.forEach(System.out::println);
-    }
+}
 }
