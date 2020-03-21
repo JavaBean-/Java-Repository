@@ -34,7 +34,9 @@ public class LambdaSample implements Comparable<LambdaSample>{
 		 * 返回负数， a < b
 		 * 返回正数， a > b
 		 */
-		Arrays.sort(planets, (a, b) -> a.length() - b.length());
+		Arrays.sort(planets, (a, b) -> a.length() - b.length());//直观表达下一条语句得逻辑
+		Arrays.sort(planets, Comparator.comparingInt(x -> x.length()));//与上一条语句功能相同，可以替换上条语句，
+		System.out.println("split~split~split~split~split~split~split~");
 		System.out.println(Arrays.toString(planets));
 		Arrays.sort(planets, Comparator.naturalOrder());
 		System.out.println(Arrays.toString(planets));
@@ -56,7 +58,13 @@ public class LambdaSample implements Comparable<LambdaSample>{
 		return this.hashCode() - o.hashCode();
 	}
 
-	private void consumer() {
+	@Override
+	public int hashCode() {
+		return super.hashCode();
+	}
+
+	@Test
+	public void consumer() {
 		/**
 		 * Consumer消费者，使用传入的参数变量
 		 */
@@ -73,7 +81,8 @@ public class LambdaSample implements Comparable<LambdaSample>{
 	 * () ->  Arrays::asList为lambda表达式
 	 * Supplier.get返回  Arrays::asList 结果
 	 */
-	private void supplier() {
+	@Test
+	public void supplier() {
 		Supplier<Function<Integer[], List<Integer>>> functionSupplier = () ->  Arrays::asList;
 		Function<Integer[],List<Integer>> mapper = functionSupplier.get();
 		Function<Integer[],List<Integer>> mapper2 = Arrays::asList;

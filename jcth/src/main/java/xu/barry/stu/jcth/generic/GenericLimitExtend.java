@@ -11,8 +11,8 @@ public class GenericLimitExtend{
     public void test(){
         Pair<Apple> apples = new Pair<>(new Apple(),new Apple());
         Pair<Fruit> fruits = new Pair<>(new Orange(),new Apple());
-        printFruits(apples);
-        printFruits(fruits);
+        limitExtend(apples);
+        limitExtend(fruits);
 
     }
 
@@ -23,7 +23,7 @@ public class GenericLimitExtend{
      * 所以一般只在方法入参类型使用
      * @param fruit
      */
-    public void printFruits(Pair<? extends Fruit> fruit){
+    public void limitExtend(Pair<? extends Fruit> fruit){
         Fruit f  =  fruit.getFirst();
         System.out.println("f:"+f);
         Fruit s  =  fruit.getSecond();
@@ -34,6 +34,7 @@ public class GenericLimitExtend{
      * 下限通配符
      * 只能set数据，get无法知道类型，
      * 只能使用Object接元素
+     * Arrays sort(T[] a, Comparator<? super T> c)
      */
     @Test
     public void limitSuper(){
@@ -50,17 +51,18 @@ public class GenericLimitExtend{
         System.out.println(appleFirst);
     }
 
+    /**
+     * Pair<Apple> 与 Pair<Fruit>
+     * 没有继承关系，没有任何关系
+     * 编译报错。
+     * 一个泛型类，因为传入不同类型T，
+     * 产生的泛型变量，
+     * 变量之间没有任何关系。
+     */
     @Test
-    public void genericExtends(){
+    public void generic(){
         Pair<Apple> apples = new Pair<>(new Apple(),new Apple());
-        /**
-         * Pair<Apple> 与 Pair<Fruit>
-         * 没有继承关系，没有任何关系
-         * 编译报错。
-         * 一个泛型类，因为传入不同类型T，
-         * 产生的泛型变量，
-         * 变量之间没有任何关系。
-         */
+
         //Pair<Fruit> fruits = apples;//compile error
         //List<Fruit> fruits = new ArrayList<Orange>();//compile error
 
@@ -138,8 +140,3 @@ class Pair<T> {
         this.second = second;
     }
 }
-
-class Fruit{}
-class Apple extends Fruit{}
-class Orange extends Fruit{}
-class GreenApple extends Apple{}
