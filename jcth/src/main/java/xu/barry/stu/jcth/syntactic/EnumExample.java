@@ -11,7 +11,6 @@ enum Enumsuger {
 
     SMALL(1), MEDIUM(2), LARGE(3), EXTRA_LARGE(4);
 
-
     private int size;
 
     Enumsuger(int size) {
