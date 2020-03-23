@@ -35,18 +35,30 @@ public class Boxing {
         System.out.println(long10.equals((long)(autoboxing5 + 5)));//true
     }
 
+    /**
+     * int + long = long
+     * int + float = float
+     * long + float = float
+     * float + double = double
+     * long + double = double
+     * 8种 基础类型
+     * int byte short long float double boolean char
+     */
     @Test
     public void castNum(){
         int a = 2;
         long b = 4;
         long c = a + b;
         float d = 1.0f + c;
-        float e = a + d;
+        float e = a + (short)123;
         double f = 3.4;
         double g = e + f;
         double h = c + g;
     }
 
+    /**
+     * Integer -128~127 范围常量池保存对象
+     */
     @Test
     public void integer() {
         Integer autoboxing128A = 128;
