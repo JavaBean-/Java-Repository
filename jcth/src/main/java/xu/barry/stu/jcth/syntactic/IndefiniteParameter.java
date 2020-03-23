@@ -33,7 +33,7 @@ public class IndefiniteParameter {
      * in IndefiniteParameter and
      * print(String, String...)
      * 声明方法时，并不报错，调用时会报错
-     * @param a
+     * @param
      * @param argv
      */
 //    public void print(String a,String... argv){
