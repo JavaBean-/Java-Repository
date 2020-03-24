@@ -68,4 +68,26 @@ public class Boxing {
         System.out.println(autoboxing128A == autoboxing128B);//false
         System.out.println(autoboxing128A.equals(boxing128));
     }
+
+    /**
+     * 各种进制赋值方式
+     */
+    @Test
+    public void binary(){
+
+        float pi = 3.141_5926f;
+        System.out.println(pi);
+
+        int binary = 0b10;
+        System.out.println(binary);
+
+        int octal  = 010;
+        System.out.println(octal);
+
+        int decimal = 10;
+        System.out.println(decimal);
+
+        int hexadecimal   = 0x10;
+        System.out.println(hexadecimal) ;
+    }
 }
