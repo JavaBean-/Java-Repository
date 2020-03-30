@@ -49,19 +49,19 @@ public class Anagrams {
     }
 
     private Byte[] WrapperByte(byte[] a) {
-        Byte[] wappera = new  Byte[a.length];
+        Byte[] wrappera = new  Byte[a.length];
         for(int i = 0 ; i < a.length ; i ++){
-            wappera[i] = a[i];
+            wrappera[i] = a[i];
         }
-        return wappera;
+        return wrappera;
     }
 
     private byte[] UnWrapperByte(Byte[] a) {
-        byte[] wappera = new byte[a.length];
+        byte[] wrappera = new byte[a.length];
         for(int i = 0 ; i < a.length ; i ++){
-            wappera[i] = a[i];
+            wrappera[i] = a[i];
         }
-        return wappera;
+        return wrappera;
     }
 
     private boolean compare(Byte[] m, Byte[] n) {
