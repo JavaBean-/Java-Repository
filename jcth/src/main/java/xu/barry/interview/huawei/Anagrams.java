@@ -17,7 +17,7 @@ public class Anagrams {
         //获取组合字符key
         for (String str : strs) {
             byte[] a = str.getBytes();
-            Byte[] wapperA =  WapperByte(a);
+            Byte[] wapperA =  WrapperByte(a);
             Arrays.sort(wapperA, Comparator.naturalOrder());
             Optional<Byte[]> optional = collections.stream().filter(chars -> compare(chars, wapperA)).findFirst();
             if(optional.orElse(null) != null) continue;
@@ -27,16 +27,16 @@ public class Anagrams {
         HashMap<String, ArrayList<String>> store = new HashMap();
         collections.stream()
                 .forEach(bytes -> {
-                    byte[] key = UnWapperByte(bytes);
+                    byte[] key = UnWrapperByte(bytes);
                     String keys = new String(key);
                     store.put(keys,new ArrayList<>());
                 });
 
         //遍历归类
         for(String str : strs){
-            Byte[] wapper = WapperByte(str.getBytes());
+            Byte[] wapper = WrapperByte(str.getBytes());
             Arrays.sort(wapper, Comparator.naturalOrder());
-            String keys = new String(UnWapperByte(wapper));
+            String keys = new String(UnWrapperByte(wapper));
             store.get(keys).add(str);
         }
 
@@ -48,7 +48,7 @@ public class Anagrams {
         return result;
     }
 
-    private Byte[]  WapperByte(byte[] a) {
+    private Byte[] WrapperByte(byte[] a) {
         Byte[] wappera = new  Byte[a.length];
         for(int i = 0 ; i < a.length ; i ++){
             wappera[i] = a[i];
@@ -56,7 +56,7 @@ public class Anagrams {
         return wappera;
     }
 
-    private byte[]  UnWapperByte(Byte[] a) {
+    private byte[] UnWrapperByte(Byte[] a) {
         byte[] wappera = new byte[a.length];
         for(int i = 0 ; i < a.length ; i ++){
             wappera[i] = a[i];
