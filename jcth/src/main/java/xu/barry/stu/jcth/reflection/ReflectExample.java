@@ -23,7 +23,7 @@ public class ReflectExample implements Serializable, Cloneable {
     private static final long serialVersionUID = 1L;
 
     /**
-     *
+     * Java四种获取对象实例得方法
      */
     @Test
     public void newInstance() throws CloneNotSupportedException, IOException, ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
