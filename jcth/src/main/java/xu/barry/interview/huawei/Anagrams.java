@@ -17,11 +17,11 @@ public class Anagrams {
         //获取组合字符key
         for (String str : strs) {
             byte[] a = str.getBytes();
-            Byte[] wapperA =  WrapperByte(a);
-            Arrays.sort(wapperA, Comparator.naturalOrder());
-            Optional<Byte[]> optional = collections.stream().filter(chars -> compare(chars, wapperA)).findFirst();
+            Byte[] wapper =  WrapperByte(a);
+            Arrays.sort(wapper, Comparator.naturalOrder());
+            Optional<Byte[]> optional = collections.stream().filter(chars -> compare(chars, wapper)).findFirst();
             if(optional.orElse(null) != null) continue;
-            collections.add(wapperA);
+            collections.add(wapper);
         }
         //转化为HashMap
         HashMap<String, ArrayList<String>> store = new HashMap();
@@ -34,9 +34,9 @@ public class Anagrams {
 
         //遍历归类
         for(String str : strs){
-            Byte[] wapper = WrapperByte(str.getBytes());
-            Arrays.sort(wapper, Comparator.naturalOrder());
-            String keys = new String(UnWrapperByte(wapper));
+            Byte[] wrapperByte = WrapperByte(str.getBytes());
+            Arrays.sort(wrapperByte, Comparator.naturalOrder());
+            String keys = new String(UnWrapperByte(wrapperByte));
             store.get(keys).add(str);
         }
 
@@ -49,24 +49,23 @@ public class Anagrams {
     }
 
     private Byte[] WrapperByte(byte[] a) {
-        Byte[] wrappera = new  Byte[a.length];
+        Byte[] wrapper = new  Byte[a.length];
         for(int i = 0 ; i < a.length ; i ++){
-            wrappera[i] = a[i];
+            wrapper[i] = a[i];
         }
-        return wrappera;
+        return wrapper;
     }
 
     private byte[] UnWrapperByte(Byte[] a) {
-        byte[] wrappera = new byte[a.length];
+        byte[] wrapper = new byte[a.length];
         for(int i = 0 ; i < a.length ; i ++){
-            wrappera[i] = a[i];
+            wrapper[i] = a[i];
         }
-        return wrappera;
+        return wrapper;
     }
 
     private boolean compare(Byte[] m, Byte[] n) {
         if (m.length != n.length) return false;
-
         Arrays.sort(m, Comparator.naturalOrder());
         Arrays.sort(n, Comparator.naturalOrder());
         for (int i = 0; i<m.length;  i++){

@@ -23,7 +23,7 @@ public class StreamOptional {
 
     @Test
     public void optional(){
-        Optional<String> h = Optional.of(new String("hello!"));
+        Optional<String> h = Optional.of("hello!");
         String o = h.get();
         System.out.println("o: "+o);
 

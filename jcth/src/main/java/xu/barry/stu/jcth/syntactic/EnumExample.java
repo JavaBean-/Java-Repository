@@ -7,13 +7,13 @@ import org.junit.Test;
  * 构造函数只能是package-private(default)或者private，
  * 内部调用
  */
-enum Enumsuger {
+enum EnumSugar {
 
     SMALL(1), MEDIUM(2), LARGE(3), EXTRA_LARGE(4);
 
     private int size;
 
-    Enumsuger(int size) {
+    EnumSugar(int size) {
         this.size = size;
     }
 
@@ -27,13 +27,13 @@ enum Enumsuger {
 }
 
 public class EnumExample {
-    Enumsuger es1 = Enumsuger.SMALL;
-    Enumsuger es2 = Enumsuger.SMALL;
-    Enumsuger es3 = Enumsuger.valueOf("SMALL");
-    Enumsuger es4 = Enum.valueOf(Enumsuger.class, "SMALL");
+    EnumSugar es1 = EnumSugar.SMALL;
+    EnumSugar es2 = EnumSugar.SMALL;
+    EnumSugar es3 = EnumSugar.valueOf("SMALL");
+    EnumSugar es4 = Enum.valueOf(EnumSugar.class, "SMALL");
 
-    Enumsuger em1 = Enumsuger.MEDIUM;
-    Enumsuger em2 = Enumsuger.MEDIUM;
+    EnumSugar em1 = EnumSugar.MEDIUM;
+    EnumSugar em2 = EnumSugar.MEDIUM;
     @Test
     public void en() {
         singletonInstance();
@@ -44,11 +44,11 @@ public class EnumExample {
     }
 
     private void ordinalAndCompare() {
-        System.out.println("Enumsuger.SMALL  ordinal:" + es1.ordinal());
-        System.out.println("Enumsuger.MEDIUM ordinal:" + em1.ordinal());
+        System.out.println("EnumSugar.SMALL  ordinal:" + es1.ordinal());
+        System.out.println("EnumSugar.MEDIUM ordinal:" + em1.ordinal());
         System.out.println(em2.compareTo(es1));
 
-        Enumsuger el1 = Enumsuger.LARGE;
+        EnumSugar el1 = EnumSugar.LARGE;
         System.out.println(el1.compareTo(es1));
     }
 
