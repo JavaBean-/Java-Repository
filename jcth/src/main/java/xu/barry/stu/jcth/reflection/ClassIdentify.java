@@ -49,9 +49,7 @@ public class ClassIdentify {
 
         Stream.of(c2).forEach(c ->
                 System.out.println(
-                        c.getClass().getCanonicalName() + " Parameter type :" +
-                                Arrays.toString(c.getParameterTypes()) + " : " +
-                                Arrays.toString(c.getParameters())));
+                        c.getClass().getCanonicalName() + " Parameter type :" + Arrays.toString(c.getParameterTypes()) + " : " + Arrays.toString(c.getParameters())));
     }
 
     @Test
