@@ -1,9 +1,11 @@
 package xu.barry.stu.jcth.lambda;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.io.FileReader;
+import java.io.Serializable;
+import java.util.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -14,6 +16,19 @@ import org.junit.Test;
 /**
  * Functional interface:a functional interface has exactly one abstract method.
  * Java 自带函数式接口 package: java.util.function
+ *
+ * Here are just a few of the key benefits to using lambda expressions in Java:
+ *     Conciseness
+ *     Reduction in code bloat
+ *     Readability
+ *     Elimination of shadow variables
+ *     Encouragement of functional programming
+ *     Code reuse
+ *     Enhanced iterative syntax
+ *     Simplified variable scope
+ *     Less boilerplate code
+ *     JAR file size reductions
+ *     Parallel processing opportunities
  */
 public class LambdaSample implements Comparable<LambdaSample>{
 
@@ -45,9 +60,8 @@ public class LambdaSample implements Comparable<LambdaSample>{
 		 * 所以不能使用Comparator.naturalOrder()进行排序
 		 * Comparator用来定义排序方法
 		 * Comparable用来定义比较方法
-		 *
+		 * Arrays.sort(objects, Comparator.naturalOrder());
 		 */
-		//Arrays.sort(objects, Comparator.naturalOrder());
 		Arrays.sort(objects, (a,b) -> a.hashCode() - b.hashCode() );
 		System.out.println(Arrays.toString(objects));
 		Arrays.sort(LambdaSamples, Comparator.naturalOrder());
@@ -104,5 +118,25 @@ public class LambdaSample implements Comparable<LambdaSample>{
 		return t -> t;
 	}
 
+
+	/**
+	 * Lambda副作用,重载方法时
+	 * 无法准确推断实现的方法
+	 * 如下例子：
+	 * 根据此return null，推断submit(Runnable r)
+	 * 删除return null，推断为submit(Callable c)
+	 * 需要catch Exception
+	 */
+	@Test
+	void sideEffective(){
+		ExecutorService es = Executors.newSingleThreadExecutor();
+		es.submit(() -> {
+			try(Scanner scanner = new Scanner(new FileReader("file.txt"))) {
+				String line = scanner.nextLine();
+				System.out.println(line);
+			}
+			return null;
+		});
+	}
 
 }

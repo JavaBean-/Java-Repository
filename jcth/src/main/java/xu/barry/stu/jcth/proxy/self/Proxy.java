@@ -51,6 +51,7 @@ public class Proxy {
     private static Constructor generateFileAndLoadclass(String classStr)
             throws IOException, ClassNotFoundException, NoSuchMethodException {
         /**
+         * windows 系统虚拟机获得路径
          * /D:/Documents/GitHub/Java-Repository/jcth/target/classes/
          */
         String path = Proxy.class.getResource("/").getPath();
