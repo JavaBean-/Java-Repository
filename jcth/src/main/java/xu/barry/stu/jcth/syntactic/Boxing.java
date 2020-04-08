@@ -32,7 +32,11 @@ public class Boxing {
 
         System.out.println(long10.equals(autoboxing5 + 5));//false隐含自动拆箱，相加计算，自动装箱(Integer)，最后比较
         System.out.println(long10.equals(autoboxing5 + 5L));//true,隐含自动拆箱，相加计算，自动装箱(Long)，最后比较
-        System.out.println(long10.equals((long)(autoboxing5 + 5)));//true
+        System.out.println(long10.equals((long)(autoboxing5 + 5)));//
+
+
+        System.out.println("int 5 == Integer 5 " + (5 == autoboxing5));//true int 5 == Integer 5
+        System.out.println("Integer 5 ==new Integer 5 " + (boxing5 == new Integer(5)));
     }
 
     /**
