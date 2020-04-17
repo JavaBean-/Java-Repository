@@ -5,23 +5,17 @@ import org.junit.Test;
 import java.util.concurrent.CountDownLatch;
 
 public class NotfiyAwaitAlternate {
-
     private static CountDownLatch count = new CountDownLatch(1);
-
     char[] s = "ABCDEFGHIJ".toCharArray();
     char[] n = "1234567890".toCharArray();
-
     @Test
     public void AlternatePrint() {
-
        Thread ts = new Thread(() -> {
-
            try {
                count.await();
            } catch (InterruptedException e) {
                e.printStackTrace();
            }
-
             for (int i = 0; i < s.length; i++) {
                 synchronized (this){
                     System.out.println(s[i]);
@@ -36,7 +30,6 @@ public class NotfiyAwaitAlternate {
         });
         Thread tn = new Thread(() -> {
             count.countDown();
-
             for (int i = 0; i < n.length; i++) {
                 synchronized (this){
                     System.out.println(n[i]);
@@ -47,14 +40,9 @@ public class NotfiyAwaitAlternate {
                         e.printStackTrace();
                     }
                 }
-
             }
         });
-
         ts.start();
         tn.start();
-
-
-
     }
 }
