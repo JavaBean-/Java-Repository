@@ -1,5 +1,6 @@
 package xu.barry.stu.jcth.stream;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
 import java.util.*;
@@ -53,7 +54,7 @@ public class StreamResult {
     }
 
     @Test
-    private void Collector() {
+    public void Collector() {
         //stream covert to List or map or set
         List<Integer> listr = integerList.stream().collect(Collectors.toList());
         Set<Integer> set = integerList.stream().collect(Collectors.toSet());
@@ -75,6 +76,15 @@ public class StreamResult {
                 .map(a -> Double.valueOf(Math.pow(a, 2)).intValue())
                 .reduce(Integer::sum)
                 .ifPresent(System.out::println);
+    }
+
+    @Test
+    public void test1(){
+        String url = "[2001:1b70:8201:b53::1a]:5000";
+        String registryHost = url.substring(url.indexOf('[')+1,url.indexOf(']'));
+
+        registryHost = StringUtils.substringBetween(url, "[","]");
+
     }
 
 }

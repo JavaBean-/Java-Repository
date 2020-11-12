@@ -29,14 +29,19 @@ public class StreamTransf {
         System.out.println("-----------------------------");
         l.add(c2);
         l.add(c1);
-
+        System.out.println("-----------contan1(l)------------------");
         contan1(l).forEach(System.out::println);
-        System.out.println("-----------------------------");
+        System.out.println("-----------contan2(l)------------------");
         contan2(l).forEach(System.out::println);
         System.out.println("-----------------------------");
         contan3(Arrays.asList(a),c,c2).forEach(System.out::println);
     }
 
+    /**
+     * 拼接不同集合获得流
+     * @param collections
+     * @return
+     */
     private Stream<String> contan1(List<Collection<String>> collections) {
         return collections.stream().map(a->a.stream()).reduce(Stream::concat).get();
     }

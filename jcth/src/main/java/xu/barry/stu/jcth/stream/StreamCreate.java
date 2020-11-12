@@ -76,7 +76,10 @@ public class StreamCreate {
     public void other() throws IOException {
 
         String url = Files.lines(Paths.get("C:\\Users\\ezxuxzh\\Documents\\New Text Document.txt"))
-                .filter(s -> s.contains("server: "))
+                .filter(s -> {
+                    System.out.println(s);
+                    return s.contains("server: ");
+                })
                 .map(t -> t.replace("server: ","").trim())
                 .findAny()
                 .orElse(null);

@@ -78,7 +78,7 @@ public class LambdaSample implements Comparable<LambdaSample>{
 	}
 
 	@Test
-	public void consumer() {
+	public void consumer() throws Exception {
 		/**
 		 * Consumer消费者，使用传入的参数变量
 		 */
