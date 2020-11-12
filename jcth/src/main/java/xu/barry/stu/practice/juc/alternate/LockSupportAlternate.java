@@ -1,4 +1,4 @@
-package xu.barry.stu.juc.practice.Alternate;
+package xu.barry.stu.practice.juc.alternate;
 
 import org.junit.Test;
 
