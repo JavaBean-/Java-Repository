@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 
 public class VarHandleExample {
 
-    private int publicTestVariable = 1;
+    private final int publicTestVariable = 1;
     private int privateTestVariable = 1;
     private int variableToSet = 1;
     private int variableToCompareAndSet = 1;
@@ -36,7 +36,7 @@ public class VarHandleExample {
         assertEquals(1, PUBLIC_TEST_VARIABLE.coordinateTypes().size());
         assertEquals(VarHandleExample.class, PUBLIC_TEST_VARIABLE.coordinateTypes().get(0));
         PUBLIC_TEST_VARIABLE.compareAndSet(this, 1, 2);
-        int publicTestVariable = 1;
+        int publicTestVariable = 2;
         assertEquals(2, publicTestVariable);
     }
 

@@ -1,6 +1,7 @@
 package xu.barry.stu.jcth;
 
 import org.junit.Test;
+import xu.barry.stu.jcth.utils.Printer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,7 +43,7 @@ public class CollectionsCopy {
         bean.setStrings(s);
         s.remove("a");
         s.forEach(System.out::println);
-        Print.println("----------- 深度复制，source 被移除 \"a\" 元素，dest 并没有移除 --------------");
+        Printer.println("----------- 深度复制，source 被移除 \"a\" 元素，dest 并没有移除 --------------");
         bean.printList();
     }
 }
