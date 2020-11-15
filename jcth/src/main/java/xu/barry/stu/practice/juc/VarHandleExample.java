@@ -7,6 +7,12 @@ import java.lang.invoke.VarHandle;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * https://www.baeldung.com/java-variable-handles
+ *
+ * The goal of VarHandle is to define a standard for invoking equivalents of java.util.concurrent.atomic
+ * and sun.misc.Unsafe operations on fields and array elements.
+ */
 public class VarHandleExample {
 
     private final int publicTestVariable = 1;
