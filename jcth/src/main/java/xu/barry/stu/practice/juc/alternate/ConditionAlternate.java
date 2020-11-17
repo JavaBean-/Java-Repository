@@ -12,13 +12,13 @@ public class ConditionAlternate {
     char[] n = "1234567890".toCharArray();
 
     @Test
-    public void AlternatePrint() {
+    public void AlternatePrint() throws InterruptedException {
 
         ReentrantLock rl = new ReentrantLock();
         CountDownLatch cd = new CountDownLatch(1);
 
-        Condition cs = rl.newCondition();
-        Condition cn = rl.newCondition();
+        Condition sCondition = rl.newCondition();
+        Condition nCondition = rl.newCondition();
 
 
         Thread ts = new Thread(() -> {
@@ -31,8 +31,8 @@ public class ConditionAlternate {
                 try {
                     rl.lock();
                     System.out.println(s[i]);
-                    cn.signal();
-                    cs.await();
+                    nCondition.signal();
+                    sCondition.await();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
@@ -48,8 +48,8 @@ public class ConditionAlternate {
                     rl.lock();
                     System.out.println(n[i]);
                     cd.countDown();
-                    cs.signal();
-                    cn.await();
+                    sCondition.signal();
+                    nCondition.await();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
@@ -59,6 +59,7 @@ public class ConditionAlternate {
         });
         ts.start();
         tn.start();
+        Thread.sleep(1000);
     }
 
 }
