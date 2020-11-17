@@ -1,4 +1,4 @@
-package xu.barry.stu.jcth;
+package xu.barry.stu.practice.array;
 
 import org.junit.Test;
 import xu.barry.stu.jcth.utils.Printer;

@@ -1,4 +1,4 @@
-package xu.barry.interview.huawei;
+package xu.barry.stu.practice.array;
 
 import org.junit.Test;
 

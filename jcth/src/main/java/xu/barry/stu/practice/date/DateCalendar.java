@@ -1,4 +1,4 @@
-package xu.barry.interview.huawei;
+package xu.barry.stu.practice.date;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -1,4 +1,4 @@
-package xu.barry.interview.huawei;
+package xu.barry.stu.practice.recursion;
 
 import org.junit.Test;
 
