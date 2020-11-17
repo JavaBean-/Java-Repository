@@ -43,7 +43,7 @@ public class CollectionsCopy {
         bean.setStrings(s);
         s.remove("a");
         s.forEach(System.out::println);
-        Printer.println("----------- 深度复制，source 被移除 \"a\" 元素，dest 并没有移除 --------------");
+        Printer.line("----------- 深度复制，source 被移除 \"a\" 元素，dest 并没有移除 --------------");
         bean.printList();
     }
 }
