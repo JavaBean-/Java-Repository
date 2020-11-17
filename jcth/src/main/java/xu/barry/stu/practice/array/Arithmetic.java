@@ -8,7 +8,7 @@ public class Arithmetic {
 
     @Test
     public void test(){
-        int[] b =new int[]{1,2,3,4};
+        int[] b =new int[]{1,2,3,4,5};
         System.out.println(numberOfArithmeticSlices(b));
     }
         public int numberOfArithmeticSlices(int[] a){

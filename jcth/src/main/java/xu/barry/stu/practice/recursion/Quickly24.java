@@ -1,4 +1,4 @@
-package xu.barry.interview.cmcc;
+package xu.barry.interview.huawei;
 
 import org.junit.Test;
 
