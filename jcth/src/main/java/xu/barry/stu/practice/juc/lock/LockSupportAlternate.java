@@ -1,4 +1,4 @@
-package xu.barry.stu.practice.juc.alternate;
+package xu.barry.stu.practice.juc.lock;
 
 import org.junit.Test;
 import xu.barry.stu.jcth.utils.Printer;

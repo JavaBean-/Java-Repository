@@ -1,4 +1,4 @@
-package xu.barry.stu.practice.juc.alternate;
+package xu.barry.stu.practice.juc.lock;
 
 import org.junit.Test;
 
@@ -22,11 +22,13 @@ public class ConditionAlternate {
 
 
         Thread ts = new Thread(() -> {
+
             try {
                 cd.await();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
             for (int i = 0; i < s.length; i++) {
                 try {
                     rl.lock();
