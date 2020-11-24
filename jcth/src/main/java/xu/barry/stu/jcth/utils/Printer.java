@@ -8,9 +8,10 @@ public class Printer {
 
     private Printer(){};
 
-    public static void println(CharSequence s){
+    public static void println(Object s){
         System.out.println(s);
     }
+
     public static void print(CharSequence s){
         System.out.print(s);
     }

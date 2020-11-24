@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.util.concurrent.CountDownLatch;
 
-public class NotfiyAwaitAlternate {
+public class NotifyAwaitAlternate {
     private static CountDownLatch count = new CountDownLatch(1);
     char[] s = "ABCDEFGHIJ".toCharArray();
     char[] n = "1234567890".toCharArray();

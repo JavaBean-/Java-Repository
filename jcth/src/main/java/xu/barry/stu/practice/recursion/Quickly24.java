@@ -31,12 +31,12 @@ public class Quickly24 {
         //条件不满足 直接退出
         if (array.length < 2) return false;
         if (array.length > 2) {
-            System.out.println(operator);
-            System.out.println("target:" + target);
-            System.out.print("**********");
-            Arrays.stream(array).forEach(System.out::print);
-            System.out.print("**********");
-            System.out.println();
+//            System.out.println(operator);
+//            System.out.println("target:" + target);
+//            System.out.print("**********");
+//            Arrays.stream(array).forEach(System.out::print);
+//            System.out.print("**********");
+//            System.out.println();
         }
         //递归调用 退出条件
         if (array.length == 2) {
@@ -45,12 +45,14 @@ public class Quickly24 {
             if (target == a * b || target == a + b) {
                 System.out.println("a:" + a);
                 System.out.println("b:" + b);
+                System.out.println("+ or *");
                 System.out.println("target:" + target);
                 return true;
             }
             if (target == a - b || target == b - a) {
                 System.out.println("a:" + a);
                 System.out.println("b:" + b);
+                System.out.println("-");
                 System.out.println("target:" + target);
                 return true;
             }
@@ -58,6 +60,7 @@ public class Quickly24 {
                 if (target == a / b || target == b / a) {
                     System.out.println("a:" + a);
                     System.out.println("b:" + b);
+                    System.out.println("//");
                     System.out.println("target:" + target);
                     return true;
                 }
