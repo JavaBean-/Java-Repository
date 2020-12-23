@@ -5,9 +5,8 @@ import xu.barry.stu.jcth.utils.model.SleepTools;
 
 import java.util.concurrent.locks.Lock;
 
-public class TestSelfLock {
-
-
+public  class SelfLockTest {
+    
     public void test() {
         final Lock lock = new SelfLock();
         class Worker extends Thread {

@@ -22,7 +22,6 @@ public class AtomicR {
                     person.setAge(person.getAge() + 1);
                 }
             }
-
         });
         Thread t2 = new Thread(() -> {
             person.setName("bbb");

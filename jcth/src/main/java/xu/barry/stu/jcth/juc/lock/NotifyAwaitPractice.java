@@ -1,4 +1,4 @@
-package xu.barry.stu.practice.juc.lock;
+package xu.barry.stu.jcth.juc.lock;
 
 import org.junit.Test;
 
