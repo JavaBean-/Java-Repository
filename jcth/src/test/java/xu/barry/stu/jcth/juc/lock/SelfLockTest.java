@@ -5,8 +5,7 @@ import xu.barry.stu.jcth.utils.model.SleepTools;
 
 import java.util.concurrent.locks.Lock;
 
-public class TestSelfLock {
-
+public  class SelfLockTest {
 
     public void test() {
         final Lock lock = new SelfLock();
@@ -37,7 +36,7 @@ public class TestSelfLock {
 
     @Test
     public void main() {
-        TestSelfLock testMyLock = new TestSelfLock();
+        SelfLockTest testMyLock = new SelfLockTest();
         testMyLock.test();
     }
 }

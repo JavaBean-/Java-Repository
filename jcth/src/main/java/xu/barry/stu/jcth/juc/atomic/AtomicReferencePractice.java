@@ -6,7 +6,7 @@ import xu.barry.stu.jcth.utils.model.Father;
 
 import java.util.concurrent.atomic.AtomicReference;
 
-public class AtomicR {
+public class AtomicReferencePractice {
 
     private Father person = new Father("barry", 12);
 
@@ -22,7 +22,6 @@ public class AtomicR {
                     person.setAge(person.getAge() + 1);
                 }
             }
-
         });
         Thread t2 = new Thread(() -> {
             person.setName("bbb");

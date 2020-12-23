@@ -1,10 +1,10 @@
-package xu.barry.stu.practice.juc.lock;
+package xu.barry.stu.jcth.juc.lock;
 
 import org.junit.Test;
 
 import java.util.concurrent.CountDownLatch;
 
-public class NotifyAwaitAlternate {
+public class NotifyAwaitPractice {
     private static CountDownLatch count = new CountDownLatch(1);
     char[] s = "ABCDEFGHIJ".toCharArray();
     char[] n = "1234567890".toCharArray();

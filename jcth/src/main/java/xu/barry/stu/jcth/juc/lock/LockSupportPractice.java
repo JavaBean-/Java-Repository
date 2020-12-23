@@ -1,4 +1,4 @@
-package xu.barry.stu.practice.juc.lock;
+package xu.barry.stu.jcth.juc.lock;
 
 import org.junit.Test;
 import xu.barry.stu.jcth.utils.Printer;
@@ -6,7 +6,7 @@ import xu.barry.stu.jcth.utils.Printer;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.locks.LockSupport;
 
-public class LockSupportAlternate {
+public class LockSupportPractice {
 
     private CountDownLatch waitingPrint = new CountDownLatch(2);
     private Thread ts = null;

@@ -7,7 +7,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 
 
-public class SelfLock implements Lock {
+class SelfLock implements Lock {
     // 静态内部类，自定义同步器
     private static class Sync extends AbstractQueuedSynchronizer {
         //private static final long serialVersionUID = -4387327721959839431L;

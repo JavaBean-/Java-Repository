@@ -1,4 +1,4 @@
-package xu.barry.stu.practice.juc.cas;
+package xu.barry.stu.jcth.juc;
 
 import org.junit.Test;
 

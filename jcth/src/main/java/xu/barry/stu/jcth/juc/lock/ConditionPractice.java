@@ -1,4 +1,4 @@
-package xu.barry.stu.practice.juc.lock;
+package xu.barry.stu.jcth.juc.lock;
 
 import org.junit.Test;
 
@@ -6,7 +6,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class ConditionAlternate {
+public class ConditionPractice {
 
     char[] s = "ABCDEFGHIJ".toCharArray();
     char[] n = "1234567890".toCharArray();
