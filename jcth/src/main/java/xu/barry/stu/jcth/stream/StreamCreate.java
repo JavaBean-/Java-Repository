@@ -2,12 +2,16 @@ package xu.barry.stu.jcth.stream;
 
 import org.junit.Test;
 
+import java.io.File;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.function.IntUnaryOperator;
 import java.util.regex.Pattern;
 import java.util.stream.IntStream;
@@ -80,12 +84,20 @@ public class StreamCreate {
                     System.out.println(s);
                     return s.contains("server: ");
                 })
-                .map(t -> t.replace("server: ","").trim())
+                .map(t -> t.replace("server: ", "").trim())
                 .findAny()
                 .orElse(null);
         System.out.println(url);
 
         Stream<String> works = Pattern.compile(",").splitAsStream("www,fds.gsg,gs,g,sg/,sdgs//g");
         works.forEach(System.out::println);
-}
+    }
+
+    @Test
+    public void write() throws IOException {
+        List<String> write = Arrays.asList("a", "b", "v", "d", "e");
+        Path path = Paths.get("C:\\Users\\ezxuxzh\\Documents\\New Text Document.output");
+        Path url = Files.write(path, write, StandardOpenOption.CREATE_NEW,StandardOpenOption.APPEND);
+        Files.lines(Paths.get("C:\\Users\\ezxuxzh\\Documents\\New Text Document.output")).forEach(System.out::println);
+    }
 }
