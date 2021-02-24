@@ -31,12 +31,12 @@ public class Quickly24 {
         //条件不满足 直接退出
         if (array.length < 2) return false;
         if (array.length > 2) {
-//            System.out.println(operator);
-//            System.out.println("target:" + target);
-//            System.out.print("**********");
-//            Arrays.stream(array).forEach(System.out::print);
-//            System.out.print("**********");
-//            System.out.println();
+            System.out.println(operator);
+            System.out.println("target:" + target);
+            System.out.print("**********");
+            Arrays.stream(array).forEach(System.out::print);
+            System.out.print("**********");
+            System.out.println();
         }
         //递归调用 退出条件
         if (array.length == 2) {
