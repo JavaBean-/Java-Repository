@@ -49,7 +49,9 @@ public class ThreadLocalOOM {
                 System.out.println("use local varaible" + ",here times:" + timesBegan.addAndGet(1));
                 threadLocalVariable.set(new LocalVariable(threadName));
                 Printer.println(threadLocalVariable.get().getMsg() + ",finished times with:" + timesAfter.addAndGet(1));
-//                new LocalVariable(threadName);
+                //直接申请的内存会被回收
+                //new LocalVariable(threadName);
+                //调用remove，避免内存泄漏
                 threadLocalVariable.remove();
             });
             Thread.sleep(100);
