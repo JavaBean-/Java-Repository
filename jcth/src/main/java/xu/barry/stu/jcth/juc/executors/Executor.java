@@ -1,6 +1,7 @@
 package xu.barry.stu.jcth.juc.executors;
 
-import org.testng.annotations.Test;
+
+import org.junit.Test;
 import xu.barry.stu.jcth.utils.model.SleepTools;
 
 import java.util.concurrent.ExecutorService;
