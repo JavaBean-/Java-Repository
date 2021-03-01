@@ -17,7 +17,7 @@ public class Printer {
     }
 
     public static void partition(CharSequence message){
-        System.out.println(PARTITION+message+PARTITION);
+        println(PARTITION+message+PARTITION);
     }
     public static void partition(){
         partition("");
@@ -27,6 +27,6 @@ public class Printer {
         int n = 120 - s.length()%120;
         for(int i = n ; i>0; i--) print(" ");
         String[] name = stackTraceElement.getClassName().split("\\.");
-        System.out.println(name[name.length-1] +"->" + stackTraceElement.getLineNumber());
+        println(name[name.length-1] +"->" + stackTraceElement.getLineNumber());
     }
 }

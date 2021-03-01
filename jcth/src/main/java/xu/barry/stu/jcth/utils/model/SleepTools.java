@@ -1,5 +1,7 @@
 package xu.barry.stu.jcth.utils.model;
 
+import xu.barry.stu.jcth.utils.Printer;
+
 import java.util.concurrent.TimeUnit;
 
 public class SleepTools {
@@ -13,6 +15,7 @@ public class SleepTools {
         try {
             TimeUnit.SECONDS.sleep(seconds);
         } catch (InterruptedException e) {
+            Printer.print(e.getMessage());
         }
     }
 

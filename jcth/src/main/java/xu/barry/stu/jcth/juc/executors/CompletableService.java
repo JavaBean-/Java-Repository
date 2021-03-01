@@ -8,7 +8,7 @@ import java.util.concurrent.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class CompletableServiceExample {
+public class CompletableService {
 
     public static void main(String[] args) throws Exception, InterruptedException {
 
@@ -23,7 +23,7 @@ public class CompletableServiceExample {
     //这种方式提交的任务，有可能任务A是第一个执行完的，但是返回的顺序却不是第一个
     public static void test1() throws Exception, InterruptedException {
         ExecutorService executorService = Executors.newFixedThreadPool(5);
-        List<Callable> task = IntStream.range(0, 5).boxed().map(CompletableServiceExample::toTask).collect(Collectors.toList());
+        List<Callable> task = IntStream.range(0, 5).boxed().map(CompletableService::toTask).collect(Collectors.toList());
         List<Future<String>> futures = new ArrayList<>();
         task.forEach(r -> futures.add(executorService.submit(r)));
 
@@ -37,7 +37,7 @@ public class CompletableServiceExample {
     //这种方式可以保证假如任务A是第一个执行完的，那么他也是第一个返回的
     public static void test2() throws Exception, InterruptedException {
         ExecutorService executorService = Executors.newFixedThreadPool(5);
-        List<Callable> task = IntStream.range(0, 5).boxed().map(CompletableServiceExample::toTask).collect(Collectors.toList());
+        List<Callable> task = IntStream.range(0, 5).boxed().map(CompletableService::toTask).collect(Collectors.toList());
         CompletionService completionService = new ExecutorCompletionService(executorService);
         task.forEach(r -> completionService.submit(r));
         Future<?> future = null;
