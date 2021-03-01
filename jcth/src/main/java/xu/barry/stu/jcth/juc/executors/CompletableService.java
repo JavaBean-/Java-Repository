@@ -1,5 +1,6 @@
 package xu.barry.stu.jcth.juc.executors;
 
+import xu.barry.stu.jcth.utils.Printer;
 import xu.barry.stu.jcth.utils.model.SleepTools;
 
 import java.util.ArrayList;
@@ -10,11 +11,11 @@ import java.util.stream.IntStream;
 
 public class CompletableService {
 
-    public static void main(String[] args) throws Exception, InterruptedException {
+    public static void main(String[] args) throws Exception {
 
-//      test1();
+      test1();
 
-      test2();
+//      test2();
 
 //        test3();
     }
@@ -27,11 +28,15 @@ public class CompletableService {
         List<Future<String>> futures = new ArrayList<>();
         task.forEach(r -> futures.add(executorService.submit(r)));
 
-        System.out.println(futures.get(4).get());
-        System.out.println("======4======");
 
-        System.out.println(futures.get(3).get());
-        System.out.println("======3======");
+        Printer.println(futures.get(4).get());
+        Printer.partition("======4======");
+
+        Printer.println(futures.get(3).get());
+        Printer.partition("======3======");
+
+        executorService.shutdownNow();
+        executorService.awaitTermination(1000,TimeUnit.MICROSECONDS);
     }
 
     //这种方式可以保证假如任务A是第一个执行完的，那么他也是第一个返回的
@@ -42,7 +47,7 @@ public class CompletableService {
         task.forEach(r -> completionService.submit(r));
         Future<?> future = null;
         while ((future = completionService.take()) != null) {
-            System.out.println(future.get());
+            Printer.println(future.get());
         }
 
     }
@@ -59,7 +64,7 @@ public class CompletableService {
         task.stream()
                 .filter(c -> !((MyTask) c).isSuccess())
                 .forEach(c -> {
-                    System.out.println("task value : " + ((MyTask) c).value);
+                    Printer.println("task value : " + ((MyTask) c).value);
                 });
 
     }
@@ -74,9 +79,9 @@ public class CompletableService {
 
         @Override
         public String call() throws Exception {
-            System.out.println("task  [" + value + "] will be executed");
-            SleepTools.second(value * 10 + 5);
-            System.out.println("task  [" + value + "]  executes done");
+            Printer.println("task  [" + value + "] will be executed");
+            SleepTools.ms(value * 100 + 5);
+            Printer.println("task  [" + value + "]  executes done");
             success = true;
             return "task result - " + value;
         }
@@ -89,9 +94,9 @@ public class CompletableService {
 
     private static Callable<String> toTask(int i) {
         return () -> {
-            System.out.println("task  [" + i + "] will be executed");
-            SleepTools.second(i * 10 + 5);
-            System.out.println("task  [" + i + "]  executes done");
+            Printer.println("task  [" + i + "] will be executed");
+            SleepTools.ms(i * 100 + 5);
+            Printer.println("task  [" + i + "]  executes done");
             return "task result - " + i;
         };
 
