@@ -24,6 +24,16 @@ public class Executor {
     @Test
     public void singleExecutor(){
         ExecutorService executor = Executors.newSingleThreadExecutor();
+        ExecutorService executor2 = Executors.newFixedThreadPool(2);
+
+        /**
+         *  1.核心线程数为零
+         *  2.最大线程数为无限
+         *  3.无任务时，线程存活的最大时间为60s
+         *  4.任务队列为同步移交队列，该队列没有缓冲区，即不会有任务会在该队列中排队，
+         *  每当有任务要入队时，队列都会将任务移交给一个可用的线程
+         */
+        ExecutorService executor3 = Executors.newCachedThreadPool();
         for (int n = 0 ; n < 10 ; n ++){
 
             /**
