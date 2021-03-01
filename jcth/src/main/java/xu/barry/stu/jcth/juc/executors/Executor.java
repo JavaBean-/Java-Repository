@@ -2,6 +2,7 @@ package xu.barry.stu.jcth.juc.executors;
 
 
 import org.junit.Test;
+import xu.barry.stu.jcth.utils.Printer;
 import xu.barry.stu.jcth.utils.model.SleepTools;
 
 import java.util.concurrent.ExecutorService;
@@ -25,7 +26,7 @@ public class Executor {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println("Print Executor Output"+ (i++));
+                Printer.println("Print Executor Output"+ (i++));
                 if(i == 9 ){
                     throw new RuntimeException();
                 }
@@ -34,4 +35,7 @@ public class Executor {
         executor.shutdown();
         SleepTools.second(2);
     }
+
+
+
 }
