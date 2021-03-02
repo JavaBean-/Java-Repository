@@ -13,6 +13,10 @@ import java.util.concurrent.Executors;
  * 线程数量 = 机器cpu核心数+1
  * IO 密集型程序
  * 线程数量 = 机器cpu核心数*2
+ * Nthreads = NCPU * UCPU * ( 1 + W/C)
+ * NCPU 物理核数
+ * UCPU 利用率
+ * W/C 等待时间与计算时间的比例
  *
  * 如果 混合型程序
  * 尽量分割任务为：cpu密集型 + IO密集型
