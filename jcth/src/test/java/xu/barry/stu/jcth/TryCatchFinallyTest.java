@@ -56,14 +56,16 @@ public class TryCatchFinallyTest {
 //    try 中 return 表达式执行但不返回的例子
 //    一般来说 finally 块在任何时候都会执行，一般他会负责资源的回收，而且也会进行结果的返回，但有几点需要注意：
 //
-//            finally 块中一旦包含了 return 语句后，finally 块之后的语句中便不能再出现 return 否则编译错误
-//finally 块中的 return 语句会覆盖 try 语句中的 return
-//    及时 finally 块中的 return 语句覆盖了 try 块中的 return 语句，但是 try 本该执行的 return 的表达式会执行；这个过程实际是在 try 执行到 return 语句准备返回时执行 return 的表达式，然后跳入 finally 块中。
+//    finally 块中一旦包含了 return 语句后，finally 块之后的语句中便不能再出现 return 否则编译错误
+//    finally 块中的 return 语句会覆盖 try 语句中的 return
+//    及时 finally 块中的 return 语句覆盖了 try 块中的 return 语句，但是 try 本该执行的 return 的表达式会执行；
+//    这个过程实际是在 try 执行到 return 语句准备返回时执行 return 的表达式，然后跳入 finally 块中。
 
 
 //    public static void main(String[] args) {
 //        System.out.println(fun(2));
 //    }
+
     public static int fun(int n) {
         try {
             return n += 1;

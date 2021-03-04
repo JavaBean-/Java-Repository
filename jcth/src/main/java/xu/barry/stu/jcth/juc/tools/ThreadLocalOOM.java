@@ -1,4 +1,4 @@
-package xu.barry.stu.jcth.juc;
+package xu.barry.stu.jcth.juc.tools;
 
 import xu.barry.stu.jcth.utils.Printer;
 
