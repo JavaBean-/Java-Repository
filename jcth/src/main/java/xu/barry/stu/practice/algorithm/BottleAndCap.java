@@ -1,4 +1,4 @@
-package xu.barry.stu.jcth;
+package xu.barry.stu.practice.algorithm;
 
 import org.junit.Test;
 
@@ -17,8 +17,8 @@ public class BottleAndCap {
 
     @Test
     public void test(){
-        int initnal = 30/2;
-        int n = get(initnal,0,0,0);
+        int initial = 30/2;
+        int n = get(initial,0,0,0);
         System.out.println(n);
     }
 
