@@ -12,7 +12,7 @@ import org.junit.Test;
  * 5 bottle caps can also be changed for a new bottle of beer, using recursive algorithm,
  * through the Java code to calculate the maximum number of bottles of beer Xiao Ming can get?
  */
-public class Interview {
+public class BottleAndCap {
 
 
     @Test
