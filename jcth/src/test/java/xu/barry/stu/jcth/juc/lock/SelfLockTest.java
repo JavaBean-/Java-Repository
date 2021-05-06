@@ -1,7 +1,7 @@
 package xu.barry.stu.jcth.juc.lock;
 
 import org.junit.Test;
-import xu.barry.stu.jcth.utils.model.SleepTools;
+import xu.barry.stu.jcth.utils.SleepTools;
 
 import java.util.concurrent.locks.Lock;
 

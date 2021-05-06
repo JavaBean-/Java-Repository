@@ -1,6 +1,4 @@
-package xu.barry.stu.jcth.utils.model;
-
-import xu.barry.stu.jcth.utils.Printer;
+package xu.barry.stu.jcth.utils;
 
 import java.util.concurrent.TimeUnit;
 

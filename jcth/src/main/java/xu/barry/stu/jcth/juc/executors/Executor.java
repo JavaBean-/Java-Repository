@@ -3,7 +3,7 @@ package xu.barry.stu.jcth.juc.executors;
 
 import org.junit.Test;
 import xu.barry.stu.jcth.utils.Printer;
-import xu.barry.stu.jcth.utils.model.SleepTools;
+import xu.barry.stu.jcth.utils.SleepTools;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

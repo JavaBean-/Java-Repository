@@ -2,7 +2,7 @@ package xu.barry.stu.jcth.juc.executors;
 
 import org.junit.Test;
 import xu.barry.stu.jcth.utils.Printer;
-import xu.barry.stu.jcth.utils.model.SleepTools;
+import xu.barry.stu.jcth.utils.SleepTools;
 
 public class CompletableFuture {
 
@@ -19,6 +19,20 @@ public class CompletableFuture {
             return "hello world";
         }), Printer::println);
         while (true){}
+    }
+
+    @Test
+    public void runAsync() throws Exception {
+        java.util.concurrent.CompletableFuture.supplyAsync(() -> {
+            SleepTools.second(2);
+            System.out.println("run end ...");
+            return "s1";
+        });
+
+        while (true){
+            System.out.println("while (true)");
+            SleepTools.second(1);
+        }
     }
 
     /**
