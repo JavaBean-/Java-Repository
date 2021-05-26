@@ -26,6 +26,7 @@ public class SleepTools {
         try {
             TimeUnit.MILLISECONDS.sleep(seconds);
         } catch (InterruptedException e) {
+            Printer.print(e.getMessage());
         }
     }
 }
