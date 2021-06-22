@@ -42,6 +42,14 @@ interface D {
 
 class X implements A, B {
 
+    X(){
+        super();
+
+    }
+    X(int i){
+        this();
+    }
+
     public static void main(String[] args) {
         /**
          * 比较A，B接口中move方法
