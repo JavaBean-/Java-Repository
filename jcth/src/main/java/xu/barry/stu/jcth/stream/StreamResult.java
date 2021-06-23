@@ -53,7 +53,7 @@ public class StreamResult {
         //List<Integer> liste = integerList.stream().collect(Collectors::toList);
     }
 
-    @Test
+   @Test
     public void Collector() {
         //stream covert to List or map or set
         List<Integer> listr = integerList.stream().collect(Collectors.toList());
