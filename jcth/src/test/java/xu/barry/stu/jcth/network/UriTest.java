@@ -6,6 +6,7 @@ import xu.barry.stu.jcth.utils.Printer;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.util.Base64;
+import java.util.HashMap;
 
 public class UriTest {
 
@@ -26,4 +27,27 @@ public class UriTest {
         Printer.println(new String(Base64.getEncoder().encode("rani_123".getBytes())));
         Printer.println(new String(Base64.getEncoder().encode("rani_123".getBytes("UTF-8"))));
     }
+
+    private static final String message = "lianxiang";
+    @Test
+    public  void test1() {
+        int i = 1;
+        char a = 'a';
+        System.out.println(a/2 == 48 ? 6:8 );
+        System.out.println(2<<3);
+        System.out.println(i ++ < ++i);
+
+        String a1 = "lian" + "xiang" ;
+        String b1 = "lian";
+        String c1 = "xiang";
+
+        System.out.println(a1 == message);
+        System.out.println(b1 + c1 == message);
+
+        System.out.println(0/Math.random());
+
+        HashMap h = new HashMap();
+        h.put("sss",null);
+    }
+
 }
