@@ -12,7 +12,7 @@ public class ScanFolder {
 
           long start = System.currentTimeMillis();
           List<String> paths = new ArrayList<String>();
-          paths = getAllFilePaths(new File("C:\\Users\\ezxuxzh\\IdeaProjects\\Java-Repository\\"), paths);
+          paths = getAllFilePaths(new File("D:\\jenkins\\opensearch"), paths);
 
           long end = System.currentTimeMillis();
           Printer.partition(paths.size() + " "+ (end - start));
@@ -26,7 +26,9 @@ public class ScanFolder {
                              if(f.isDirectory()){
                                      getAllFilePaths(f,filePaths);
                                  }else{
+                                 if(f.getPath().endsWith("java")){
                                      filePaths.add(f.getPath());
+                                 }
                                  }
                          }
                      return filePaths;
