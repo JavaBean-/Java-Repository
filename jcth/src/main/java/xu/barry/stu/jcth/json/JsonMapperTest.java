@@ -1,6 +1,7 @@
 package xu.barry.stu.jcth.json;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.Test;
 
 import java.io.IOException;
 
@@ -11,6 +12,12 @@ public class JsonMapperTest {
     public static void main(String[] args) throws IOException {
         ProduntJson stu = new ObjectMapper().readValue(jsonStr, ProduntJson.class);
         System.out.println(stu.toString());
+    }
 
+    @Test
+    public void test(){
+        Integer obj = 1;
+        int a = null != obj && obj == 2 ? 3 : 0;
+        System.out.println(a);
     }
 }
