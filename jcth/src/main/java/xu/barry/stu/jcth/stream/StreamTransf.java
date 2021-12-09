@@ -2,8 +2,10 @@ package xu.barry.stu.jcth.stream;
 
 import org.junit.Test;
 
+
 import java.util.*;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -52,6 +54,16 @@ public class StreamTransf {
 
     private Stream<String> contan3(List<String> s1,String[] s2, Set<String> s3) {
         return Stream.of(s1.stream(), Arrays.stream(s2), s3.stream()).flatMap(Function.identity());
+    }
+
+    @Test
+    private void mapToMap(){
+        HashMap<String, Object> original = new HashMap<>();
+        original.put("1",new Object());
+        original.put("2",new Object());
+        Map<String, String> copy = original.entrySet()
+                .stream()
+                .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().toString()));
     }
 }
 

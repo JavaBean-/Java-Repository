@@ -11,7 +11,7 @@ public class TryCatchFinallyTest {
 //        System.out.println(i);
 //        i = ++ i;
         System.out.println(i);
-        throw new IndexOutOfBoundsException();
+        //throw new IndexOutOfBoundsException();
     }
 
     @org.junit.Test
