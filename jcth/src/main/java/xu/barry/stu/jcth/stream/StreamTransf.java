@@ -20,6 +20,7 @@ public class StreamTransf {
     String[] a = new String[]{"a1","a2","a3","a4"};
     String[] b = new String[]{"b1","b2","b3","b4"};
     String[] c = new String[]{"c1","c2","c3","c4"};
+    Integer[] d = new Integer[]{23,434,5545,54,21,87};
     @Test
     public void contact(){
         Collection<String> c1 = Arrays.asList(a);
@@ -37,6 +38,12 @@ public class StreamTransf {
         contan2(l).forEach(System.out::println);
         System.out.println("-----------------------------");
         contan3(Arrays.asList(a),c,c2).forEach(System.out::println);
+
+        System.out.println("----------- Sorted ------------------");
+        Stream.of(d).sorted().forEach(System.out::println);
+        System.out.println("----------- Sorted Comparator------------------");
+        Stream.of(d).sorted(Comparator.comparing(Integer::intValue,(a,b)->b-a)).forEach(System.out::println);
+
     }
 
     /**
@@ -57,7 +64,7 @@ public class StreamTransf {
     }
 
     @Test
-    private void mapToMap(){
+    public void mapToMap(){
         HashMap<String, Object> original = new HashMap<>();
         original.put("1",new Object());
         original.put("2",new Object());
